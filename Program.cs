@@ -25,6 +25,8 @@ NaturNumbrs(M, N);
 
 //Task2  Найти сумму элементов от M до N, N и M заданы
 
+/*
+
 int SumNumbers(int M, int N)
 {
     if (M>N) return M + SumNumbers(M-1, N);
@@ -43,3 +45,47 @@ int M = ReadInt("Enter number М:");
 int N = ReadInt("Enter number N:");
 
 Console.WriteLine(SumNumbers(M, N));
+
+*/
+
+//Task 3 Найти сумму цифр числа
+
+/*
+
+
+int SumOfNumbers(int number)
+{
+    if (number == 0) return 0;
+    return SumOfNumbers(number/10) + number % 10; 
+}
+
+Console.Write("Введите N: ");
+int number = int.Parse(Console.ReadLine());
+
+Console.WriteLine(SumOfNumbers(number));
+
+*/
+
+
+//Task4 Написать программу вычисления функции Аккермана
+
+int m = InputNumbers("Введите m: ");
+int n = InputNumbers("Введите n: ");
+
+int functionAkkerman = Ack(m, n);
+
+Console.Write($"Функция Аккермана = {functionAkkerman} ");
+
+int Ack(int m, int n)
+{
+  if (m == 0) return n + 1;
+  else if (n == 0) return Ack(m - 1, 1);
+  else return Ack(m - 1, Ack(m, n - 1));
+}
+
+int InputNumbers(string input) 
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
