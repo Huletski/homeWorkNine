@@ -69,6 +69,7 @@ Console.WriteLine(SumOfNumbers(number));
 
 //Task4 Написать программу вычисления функции Аккермана
 
+/*
 int m = InputNumbers("Введите m: ");
 int n = InputNumbers("Введите n: ");
 
@@ -79,7 +80,9 @@ Console.Write($"Функция Аккермана = {functionAkkerman} ");
 int Ack(int m, int n)
 {
   if (m == 0) return n + 1;
+
   else if (n == 0) return Ack(m - 1, 1);
+
   else return Ack(m - 1, Ack(m, n - 1));
 }
 
@@ -87,5 +90,31 @@ int InputNumbers(string input)
 {
   Console.Write(input);
   int output = Convert.ToInt32(Console.ReadLine());
+  
   return output;
 }
+
+*/
+//Task 5 Написать программу возведения числа А в целую стень B
+
+int raisingToIntegerPower(int a, int b)
+{
+    if (b > 0) return a * raisingToIntegerPower(a, b - 1);
+    if (b < 0) return a * raisingToIntegerPower(a, b + 1);
+    if (b == 0) return 1;
+    return 1;
+}
+
+int ReadInt(string message)
+{
+    Console.WriteLine(message);
+    return int.Parse(Console.ReadLine());
+}
+
+int a = ReadInt("Введите число A:");
+int b = ReadInt("Введите число B:");
+
+double result = Convert.ToDouble(raisingToIntegerPower(a, b));
+
+if (b < 0) result = Math.Round(1 / result, 3);
+Console.WriteLine($"Результат: {result}");
